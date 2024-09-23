@@ -50,12 +50,15 @@ class FootnoteSource extends React.Component {
           "#id_footnotes-FORMS .w-panel"
         );
         Array.prototype.forEach.call(live_footnotes, function (value) {
+          const index = $('span[data-inline-panel-child-count]', value).text();
           const text = $(".public-DraftEditor-content", value).text();
           const uuid = $('input[id*="-uuid"]', value)[0].value;
           var row = $(
             "<tr data-uuid=" +
             uuid +
             "><td>" +
+            index +
+            "</td><td>" +
             text +
             "</td><td>" +
             uuid.substring(0, 6) +
